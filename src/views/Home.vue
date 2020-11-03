@@ -11,7 +11,7 @@
 export default {
   data: function() {
     return {
-      message: "Personal Resume"
+      message: "Welcome to the Personal Resume front end!"
     };
   },
   created: function() {},
