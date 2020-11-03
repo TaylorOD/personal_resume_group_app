@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import Login from "../views/Login.vue";
+import Logout from "../views/Logout.vue";
+import Signup from "../views/Signup.vue";
 import Show from "../views/Show.vue";
 
 
@@ -27,6 +29,8 @@ const routes = [
     name: "resume-show", 
     component: Show
   },
+  { path: "/logout", name: "logout", component: Logout },
+  { path: "/signup", name: "signup", component: Signup },
 
 ]
 
