@@ -5,7 +5,7 @@
     <h2>Education</h2>
     <div v-for="education in user.educations">
       <ul>
-      <li> <strong>Degree:</strong> {{ education.degree }}
+      <li> <strong>Degree: </strong> {{ education.degree }}
         <p><strong>School: </strong>{{ education.university_name }}</p>
         <p><strong>Dates: </strong>{{ education.start_date }} - {{ education.end_date }}</p>
         <p><strong>Details: </strong>{{ education.details }} </p>
@@ -13,11 +13,30 @@
       </ul>
       </div>
     <h2>Experience</h2>
-    <p>{{ user.experiences }}</p>
+    <div v-for="experience in user.experiences">
+      <ul>
+        <li><strong>Job title: </strong> {{ experience.job_title }}
+        <p><strong>Company:</strong> {{ experience.company_name }}</p>
+        <p><strong>Dates:</strong> {{ experience.start_date }} - {{ experience.end_date }}</p>
+        <p><strong>Details:</strong> {{ experience.details }} - {{ experience.end_date }}</p>        
+        </li>
+    </ul>
+    </div>
     <h2>Projects</h2>
-    <p>{{ user.projects }}</p>
+    <div v-for="project in user.projects">
+      <ul>
+        <li> <strong>Name: </strong>{{ project.name }}
+        <p><strong>Description: </strong>{{ project.description }}</p>
+        <p><strong>Url: </strong> {{ project.url }} </p>
+        </li>
+      </ul>
+    </div>
     <h2>Skillz</h2>
-    <p>{{ user.skills }}</p>
+    <div v-for="skill in user.skills">
+      <ul>
+        <li>{{ skill.name }}</li>
+      </ul>
+    </div>
   </div>
 </template>
 
