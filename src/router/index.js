@@ -23,21 +23,31 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
-  { path: "/login", name: "login", component: Login },
+  { 
+    path: "/login", 
+    name: "login", 
+    component: Login 
+  },
   {
-    path: '/show', 
+    path: '/show/:id', 
     name: "resume-show", 
     component: Show
   },
-  { path: "/logout", name: "logout", component: Logout },
-  { path: "/signup", name: "signup", component: Signup },
+  { 
+    path: "/logout", 
+    name: "logout", 
+    component: Logout },
+  { 
+    path: "/signup", 
+    name: "signup", 
+    component: Signup },
 
-]
+];
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
-})
+});
 
-export default router
+export default router;

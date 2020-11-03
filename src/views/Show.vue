@@ -1,9 +1,17 @@
 <template>
   <div class="resume-show">
     <h1> {{ user.first_name }}'s resume</h1>
-    <img v-bind:src="user.photo">
+    <div><img v-bind:src="user.photo" style="height: 100px; width: 100px;"></div>
     <h2>Education</h2>
-    <p>{{ user.educations }}</p>
+    <div v-for="education in user.educations">
+      <ul>
+      <li> <strong>Degree:</strong> {{ education.degree }}
+        <p><strong>School: </strong>{{ education.university_name }}</p>
+        <p><strong>Dates: </strong>{{ education.start_date }} - {{ education.end_date }}</p>
+        <p><strong>Details: </strong>{{ education.details }} </p>
+        </li>
+      </ul>
+      </div>
     <h2>Experience</h2>
     <p>{{ user.experiences }}</p>
     <h2>Projects</h2>
@@ -23,6 +31,8 @@ export default {
   data: function() {
     return {
       user: {
+        
+        "user_id": 1,
         "first_name": "John",
         "last_name": "Smith",
         "email": "John@example.com",
@@ -43,32 +53,46 @@ export default {
             "university_name": "Stanford",
             "details": "degree in art",
             "user_id": 1,
-            "created_at": "2020-11-03T00:32:55.138Z",
-            "updated_at": "2020-11-03T00:32:55.138Z"
+            "created_at": "2020-11-03T02:01:04.793Z",
+            "updated_at": "2020-11-03T02:01:04.793Z"
           }
         ],
-        "experiences": [{
-          "id":1,
-          "start_date": "06/1/16",
-          "end_date": "06/1/20",
-          "type": "Volunteer",
-          "description": "I volunteered to save puppies.",
-          "employer": "The volunteer Group",
-          "user_id": 1,
-          "created_at": "2020-11-03T00:32:55.138Z",
-          "updated_at": "2020-11-03T00:32:55.138Z"
-        }],
-        "projects": [{
-          "id":1,
-          "start_date": "06/30/16",
-          "end_date": "06/30/20",
-          "description": "I made some awesome thing.",
-          "user_id": 1,
-          "created_at": "2020-11-03T00:32:55.138Z",
-          "updated_at": "2020-11-03T00:32:55.138Z"
-        }],
-        "skills": ["JavaScript", "CSS", "Git", "Comedy"]
+        "experiences": [
+          {
+            "id": 1,
+            "start_date": "07/20/2019",
+            "end_date": "10/20/2020",
+            "job_title": "dog walker",
+            "company_name": "John's Dog's",
+            "details": "Dog walker",
+            "user_id": 1,
+            "created_at": "2020-11-03T02:01:04.684Z",
+            "updated_at": "2020-11-03T02:01:04.684Z"
+          }
+        ],
+        "projects": [
+          {
+            "id": 1,
+            "name": "Website",
+            "description": "website about dogs",
+            "url": "dogs.com",
+            "screenshot": null,
+            "user_id": 1,
+            "created_at": "2020-11-03T02:01:04.568Z",
+            "updated_at": "2020-11-03T02:01:04.568Z"
+          }
+        ],
+        "skills": [
+          {
+            "id": 1,
+            "name": "HTML",
+            "user_id": 1,
+            "created_at": "2020-11-03T02:01:04.464Z",
+            "updated_at": "2020-11-03T02:01:04.464Z"
+          }
+        ]
       },
+      
     };
   },
   created: function() {
@@ -76,8 +100,8 @@ export default {
   },
   methods: {
     // showResume: function() {
-    //   axios.get("/api/resumes" + this.$route.params.id).then((response) => {
-    //     console.log("Userinfo:", response.data );
+    //   axios.get("api/users/" + this.$route.params.id).then((response) => {
+    //     console.log("User info:", response.data );
     //     this.user = response.data;
     //   });
     // }
